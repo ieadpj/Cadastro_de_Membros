@@ -74,7 +74,23 @@ button{
     color: white;
     font-size: 20px;
 }
-
+.flex-container {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+.flex-container input[type="date"] {
+    width: 400px;
+    margin-right: 20px;
+    margin-left: 0px;
+}
+.flex-container input[type="radio"] {
+    width: 20px;
+}
+#esqueciS{
+    display: flex;
+    margin-right: 1px;
+}
 @media (max-width: 768px) {
     #form{
         text-align: center;
@@ -110,7 +126,21 @@ button{
         width: 150px;
         height: 30px;
     }
-    .data{
-        background-color: white;
+
+    .flex-container {
+        display: flex;
+        align-items: center;
+    }
+    .flex-container input[type="date"] {
+        width: 800px;
+        margin-right: 10px;
+        margin-left: 0px;
+    }
+    .flex-container input[type="radio"] {
+        width: 20px;
+    }
+    #esqueciS{
+        display: flex;
+        margin-right: 1px;
     }
 }

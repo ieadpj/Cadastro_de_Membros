@@ -14,6 +14,8 @@
             const naturalidade = form["Naturalidade"].value.trim();
             const rg = form["RG"].value.trim();
             const cpf = form["CPF"].value.trim();
+            const batismoEmAguas = form["Batismo_em_águas"].value.trim();
+            const esqueciBatismo = form["Esqueci_Batismo"].checked;
 
             const rgPattern = /^\d{2}\.\d{3}\.\d{3}-\d{1}$/;
             const cpfPattern = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
@@ -44,8 +46,49 @@
                 alert("Por favor, insira um CPF no formato xxx.xxx.xxx-xx.");
                 return false;
             }
+            if (!esqueciBatismo && !batismoEmAguas) {
+                alert("Por favor, insira a data do batismo em águas ou selecione 'Esqueci'.");
+                return false;
+            }
             return true;
         }
+
+        function toggleBatismoEmAguas() {
+            const batismoEmAguas = document.forms["cadastroForm"]["Batismo_em_águas"];
+            const esqueciBatismo = document.forms["cadastroForm"]["Esqueci_Batismo"].checked;
+            batismoEmAguas.required = !esqueciBatismo;
+            if (esqueciBatismo) {
+                batismoEmAguas.value = "";
+            }
+        }
+        function formatCPF(cpf) {
+            cpf = cpf.replace(/\D/g, "");
+            cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2");
+            cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2");
+            cpf = cpf.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+            return cpf;
+        }
+
+        function formatRG(rg) {
+            rg = rg.replace(/\D/g, "");
+            rg = rg.replace(/(\d{2})(\d)/, "$1.$2");
+            rg = rg.replace(/(\d{3})(\d)/, "$1.$2");
+            rg = rg.replace(/(\d{3})(\d{1})$/, "$1-$2"); 
+            return rg;
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const cpfInput = document.querySelector('input[name="CPF"]');
+            const rgInput = document.querySelector('input[name="RG"]');
+
+            cpfInput.addEventListener("input", function() {
+                this.value = formatCPF(this.value);
+            });
+
+            rgInput.addEventListener("input", function() {
+                this.value = formatRG(this.value);
+            });
+        });
     </script>
 </head>
 <body>
@@ -85,8 +128,11 @@
             <label>Nacionalidade</label><br>
             <input type="text" name="Nacionalidade" placeholder="País em que nasceu" required>
                 <br>
-            <label>Batismo em Águas</label><br>
-            <input class="data" type="date" name="Batismo_em_águas" value="data" required>
+                <label>Batismo em Águas</label><br>
+                <div class="flex-container">
+                    <input class="data" type="date" name="Batismo_em_águas" required>
+                    <div class="radio-group"><span id="esqueciS"></span><input class="bolinha" type="radio" name="Esqueci_Batismo" value="Esqueci" onclick="toggleBatismoEmAguas()"> Esqueci</span></div>
+                </div>
                 <br>
             <label>Local</label><br>
             <input type="text" name="Local" placeholder="Local do Batismo em águas">
@@ -116,5 +162,4 @@
             <button type="submit">Enviar</button>
         </form>
     </div>
-    <h1>TESTE DE ENGANAÇÃO DO PCccccccccccccccc</h1>
 </body>

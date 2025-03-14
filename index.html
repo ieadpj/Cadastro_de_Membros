@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function validateForm() {
+            const form = document.forms["cadastroForm"];
+            const nome = form["Nome"].value.trim();
+            const filiacao = form["Filiação"].value.trim();
+            const endereco = form["Endereço"].value.trim();
+            const naturalidade = form["Naturalidade"].value.trim();
+            const rg = form["RG"].value.trim();
+            const cpf = form["CPF"].value.trim();
+
+            const rgPattern = /^\d{2}\.\d{3}\.\d{3}-\d{1}$/;
+            const cpfPattern = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
+            const textPattern = /^[a-zA-Z\s]+$/;
+            const enderecoPattern = /^[a-zA-Z\s]+\s+\d+$/;
+
+            if (!textPattern.test(nome)) {
+                alert("Por favor, insira seu nome completo usando apenas letras e espaços.");
+                return false;
+            }
+            if (!textPattern.test(filiacao)) {
+                alert("Por favor, insira o nome dos seus pais usando apenas letras e espaços.");
+                return false;
+            }
+            if (!enderecoPattern.test(endereco)) {
+                alert("Por favor, insira o nome da rua seguido do número.");
+                return false;
+            }
+            if (!textPattern.test(naturalidade)) {
+                alert("Por favor, insira o nome da cidade usando apenas letras e espaços.");
+                return false;
+            }
+            if (!rgPattern.test(rg)) {
+                alert("Por favor, insira um RG no formato xx.xxx.xxx-x.");
+                return false;
+            }
+            if (!cpfPattern.test(cpf)) {
+                alert("Por favor, insira um CPF no formato xxx.xxx.xxx-xx.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div id="Tprincipal">
+        <h1>Cadastro dos Membros IEADPJ</h1>
+    </div>
+
+    <!-- Area do formulario -->
+
+    <div id="form">
+        <form name="cadastroForm" onsubmit="return validateForm()"  action="https://formspree.io/f/xdkeobll"
+        method="POST">
+            <label>Informe seu nome</label><br>
+            <input type="text" name="Nome" placeholder="Seu Nome Completo Aqui" required>
+                <br>
+            <label>Nome do Pai</label><br>
+            <input type="text" name="Nome_do_Pai" placeholder="Nome do seu Pai" required>
+                <br>
+            <label>Nome da Mãe</label><br>
+            <input type="text" name="Nomde_da_Mãe" placeholder="Nome da sua Mãe" required>
+                <br>
+            <label>Endereço</label><br>
+            <input type="text" name="Endereço" placeholder="Seu endereço" required>
+                <br>
+            <label>Data de Nascimento</label><br>
+            <input type="date" name="Data_Nasc." required>
+                <br>
+            <label>Estado Civil</label><br>
+            <div class="radio-group"><input class="bolinha" type="radio" name="Estado_Civil" value="Solteiro" required> Solteiro</div>
+            <div class="radio-group"><input class="bolinha" type="radio" name="Estado_Civil" value="Casado" required> Casado</div>
+            <div class="radio-group" id="divorciado"><input class="bolinha" type="radio" name="Estado_Civil" value="Divorciado" required> Divorciado</div>
+            <div class="radio-group"><input class="bolinha" type="radio" name="Estado_Civil" value="Viúvo" required> Viúvo<br></div>
+                <br>
+            <label>Naturalidade</label><br>
+            <input type="text" name="Naturalidade" placeholder="Cidade em que nasceu" required>
+                <br>
+            <label>Nacionalidade</label><br>
+            <input type="text" name="Nacionalidade" placeholder="País em que nasceu" required>
+                <br>
+            <label>Batismo em Águas</label><br>
+            <input class="data" type="date" name="Batismo_em_águas" value="data" required>
+                <br>
+            <label>Local</label><br>
+            <input type="text" name="Local" placeholder="Local do Batismo em águas">
+                <br>
+            <label>Função Ministerial (Se consta)</label><br>
+            <input type="text" name="função_ministerial" placeholder="Sua função ministerial">
+                <br>
+            <label>RG</label><br>
+            <input type="text" name="RG" placeholder="xx.xxx.xxx-x" required>
+                <br>
+            <label>CPF</label><br>
+            <input type="text" name="CPF" placeholder="xxx.xxx.xxx-xx" required>
+                <br>
+            <label>É batizado com Espírito Santo?</label><br>
+            <div class="radio-group"><input class="bolinha" type="radio" name="Batizado_com_Espírito_Santo" value="Sim" required> Sim</div>
+            <div class="radio-group"><input class="bolinha" type="radio" name="Batizado_com_Espírito_Santo" value="Não" required> Não</div>
+                <br>
+            <label>Local</label><br>
+            <input type="text" name="Local" placeholder="Local do Batismo com Espírito Santo">
+                <br>
+            <label>Data de Admissão</label><br>
+            <input class="data" type="date" name="Data_de_Admissão" required>
+                <br>
+            <label>Modo</label><br>
+            <input type="text" name="Modo"> 
+            <br>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+</body>

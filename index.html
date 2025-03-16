@@ -110,17 +110,22 @@
             <label>Nome da Mãe</label><br>
             <input type="text" name="Nomde_da_Mãe" placeholder="Nome da sua Mãe" required>
                 <br>
-            <label>Endereço</label><br>
-            <input type="text" name="Endereço" placeholder="Seu endereço" required>
+            <label>Endereço<br><span id="SN">(Caso não tenha número, digite 0)</span></label><br>
+            <input type="text" name="Endereço" placeholder="Seu endereço (nome da rua e número)" required>
                 <br>
             <label>Data de Nascimento</label><br>
             <input type="date" name="Data_Nasc." required>
                 <br>
             <label>Estado Civil</label><br>
-            <div class="radio-group"><input class="bolinha" type="radio" name="Estado_Civil" value="Solteiro" required> Solteiro</div>
-            <div class="radio-group"><input class="bolinha" type="radio" name="Estado_Civil" value="Casado" required> Casado</div>
-            <div class="radio-group" id="divorciado"><input class="bolinha" type="radio" name="Estado_Civil" value="Divorciado" required> Divorciado</div>
-            <div class="radio-group"><input class="bolinha" type="radio" name="Estado_Civil" value="Viúvo" required> Viúvo<br></div>
+            <div id="solteiro_casado">
+                <div class="radio-group" id="div_solteiro"><input class="bolinha" type="radio" name="Estado_Civil" value="Solteiro" required> <span id="solteiro">Solteiro</span></div>
+                <div class="radio-group2" id="div_casado"><input class="bolinha" type="radio" name="Estado_Civil" value="Casado" required> <span id="casado">Casado</span></div>
+            </div>
+
+            <div id="divorciado_viuvo">
+                <div class="radio-group" id="div_divorciado"><input class="bolinha" type="radio" name="Estado_Civil" value="Divorciado" required> <span id="divorciado">Divorciado</span></div>
+                <div class="radio-group2" id="div_viuvo"><input class="bolinha" type="radio" name="Estado_Civil" value="Viúvo" required> <span id="viuvo">Viúvo</span><br></div>
+            </div>
                 <br>
             <label>Naturalidade</label><br>
             <input type="text" name="Naturalidade" placeholder="Cidade em que nasceu" required>
@@ -131,7 +136,7 @@
                 <label>Batismo em Águas</label><br>
                 <div class="flex-container">
                     <input class="data" type="date" name="Batismo_em_águas" required>
-                    <div class="radio-group"><span id="esqueciS"></span><input class="bolinha" type="radio" name="Esqueci_Batismo" value="Esqueci" onclick="toggleBatismoEmAguas()"> Esqueci</span></div>
+                    <div class="radio-group"><span id="radioESQUECI"><input class="bolinha1" type="radio" name="Esqueci_Batismo" value="Esqueci" onclick="toggleBatismoEmAguas()"></span><span id="esqueciTXT">Esqueci</span></div>
                 </div>
                 <br>
             <label>Local</label><br>
@@ -147,7 +152,7 @@
             <input type="text" name="CPF" placeholder="xxx.xxx.xxx-xx" required>
                 <br>
             <label>É batizado com Espírito Santo?</label><br>
-            <div class="radio-group"><input class="bolinha" type="radio" name="Batizado_com_Espírito_Santo" value="Sim" required> Sim</div>
+            <div class="radio-group"><input class="bolinha" type="radio" name="Batizado_com_Espírito_Santo" value="Sim" required> Sim</div><br>
             <div class="radio-group"><input class="bolinha" type="radio" name="Batizado_com_Espírito_Santo" value="Não" required> Não</div>
                 <br>
             <label>Local</label><br>

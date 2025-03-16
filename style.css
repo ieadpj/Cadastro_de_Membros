@@ -37,13 +37,16 @@ label{
 input{
     border: 2px solid;
     border-color: gray;
-    border-radius: 5px;
+    border-radius: 4px;
     margin-bottom: 10px;
     margin-top: 0px;
     width: 30vw;
     height: 4vw;
     position: relative;
     bottom: 10px;
+    border-top: 0px ;
+    border-left: 0px;
+    border-right: 0px;
 }
 input:focus{
     outline: none;
@@ -58,9 +61,22 @@ input:focus{
     align-items: center;
     margin-bottom: 2px;
     display: inline-flex;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.radio-group2 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2px;
+    display: inline-flex;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .radio-group input[type="radio"] {
+    margin-right: 10px;
+    top: 4px;
+    accent-color: rgb(58, 107, 240);
+}
+.radio-group2 input[type="radio"] {
     margin-right: 10px;
     top: 4px;
     accent-color: rgb(58, 107, 240);
@@ -87,10 +103,51 @@ button{
 .flex-container input[type="radio"] {
     width: 20px;
 }
-#esqueciS{
-    display: flex;
-    margin-right: 1px;
+#esqueciTXT{
+    position: relative;
+    font-size: 13px;
+    bottom: 8px;
+    right: 4px;
 }
+#radioESQUECI{
+    position: relative;
+    bottom: 12px;
+}
+.bolinha1{
+    position: relative;
+    width: 30px;
+    margin: 0px;
+    margin-right: 0px;
+
+}
+#SN{
+    font-size: 13px;
+}
+
+/*NUNCA MEXER NESSA AREA DAQUI PARA BAIXO*/
+#solteiro_casado{
+    text-align: center;
+}
+#divorciado_viuvo{
+    text-align: center;
+}
+#div_solteiro{
+    flex: auto;
+    margin-right: 10px;
+}
+#div_casado{
+    flex: auto;
+    margin-left: 50px;
+}
+#div_divorciado{
+    margin-right: 37px;
+    margin-left: 5px;
+}
+#div_viuvo{
+    margin-right: 10px;
+}
+/*NUNCA MEXER NESSA AREA DAQUI PARA CIMA*/
+
 @media (max-width: 768px) {
     #form{
         text-align: center;
@@ -118,9 +175,15 @@ button{
     }
     
     .radio-group input[type="radio"] {
-        margin-right: 10px;
         top: 4px;
+        right: 5px;
+        margin: 5px;
         
+    }
+    .radio-group2 input[type="radio"] {
+        top: 4px;
+        right: 10px;
+        margin: 5px;
     }
     button{
         width: 150px;
@@ -142,5 +205,66 @@ button{
     #esqueciS{
         display: flex;
         margin-right: 1px;
+    }
+    #SN{
+        font-size: 12px;
+    }
+    .bolinha{
+        width: 23px;
+    }
+    /*NUNCA MEXER NESSA AREA DAQUI PARA BAIXO*/
+    #solteiro{
+        font-size: 15px;
+        margin-top: 9px;
+    }
+    #casado{
+        font-size: 15px;
+        margin-top: 9px;
+    }
+    #divorciado{
+        font-size: 15px;
+        margin-top: 10px;
+    }
+    #viuvo{
+        font-size: 15px;
+        margin-top: 9px;
+    }
+    .radio-group2 {
+        display: flex;
+        align-items: center;
+        margin-bottom: 2px;
+        display: inline-flex;
+    }
+    #solteiro_casado{
+        text-align: center;
+    }
+    #divorciado_viuvo{
+        text-align: center;
+    }
+    #div_solteiro{
+        flex: auto;
+        margin-right: 10px;
+    }
+    #div_casado{
+        flex: auto;
+        margin-left: 50px;
+    }
+    #div_divorciado{
+        margin-right: 37px;
+        margin-left: 5px;
+    }
+    #div_viuvo{
+        margin-right: 10px;
+    }
+    /*NUNCA MEXER NESSA AREA DAQUI PARA CIMA*/
+    #esqueciTXT{
+        position: relative;
+        font-size: 13px;
+        bottom: 8px;
+        right: 7px;
+    }
+    #radioESQUECI{
+        position: relative;
+        bottom: 12px;
     }
 }
